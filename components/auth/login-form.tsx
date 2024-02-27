@@ -3,6 +3,7 @@
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useSearchParams } from "next/navigation";
 import { LoginSchema } from "@/schemas";
 import { 
     Form,
@@ -20,6 +21,11 @@ import { login } from "@/actions/login";
 import { useState, useTransition } from "react";
 
 export const LoginForm = () => {
+
+    const searchParams = useSearchParams();
+    const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
+        ?"E-mail já em uso"
+        :"";
     const [error, setError] = useState<string | undefined>("")
     const [success, setSuccess] = useState<string | undefined>("")
     const [isPending, startTranstion] = useTransition();
@@ -36,8 +42,9 @@ export const LoginForm = () => {
         startTranstion(()=>{
             login(values)
                 .then((data) => {
-                    setError(data.error);
-                    setSuccess(data.success);
+                    setError(data?.error);
+                    //TODO: dois fatores
+                    //setSuccess(data?.success);
                 })
         });
     }
@@ -93,7 +100,7 @@ export const LoginForm = () => {
                             )}
                             />
                         </div>
-                        <FormError message={error}/>
+                        <FormError message={error || urlError}/>
                         <FormSuccess message={success}/>
                         <Button
                             disabled={isPending}
