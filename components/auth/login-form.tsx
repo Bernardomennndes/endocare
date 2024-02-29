@@ -43,8 +43,7 @@ export const LoginForm = () => {
             login(values)
                 .then((data) => {
                     setError(data?.error);
-                    //TODO: dois fatores
-                    //setSuccess(data?.success);
+                    setSuccess(data?.success);
                 })
         });
     }
