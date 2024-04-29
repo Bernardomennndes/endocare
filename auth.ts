@@ -34,6 +34,8 @@ export const {
       //impedir o login sem verificação de e-mail
       if(!existingUser?.emailVerified) return false;
 
+      //TODO: 2FA
+
       return true;
     },
     async session({token, session}){
