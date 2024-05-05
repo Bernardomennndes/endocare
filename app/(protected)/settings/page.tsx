@@ -1,21 +1,25 @@
-import { auth, signOut } from "@/auth";
-const SettingsPage = async() =>{
-    const session = await auth();
+"use client"
 
+import { logout } from "@/actions/logout";
+import { useSession } from "next-auth/react";
+
+
+const SettingsPage = () =>{
+    const session = useSession();
+
+    const onClick =() =>{
+        logout();
+    }
     
     return(
         <div>
-            {JSON.stringify(session)}
+            {JSON.stringify(session.data?.user)}
 
-            <form action={async() =>{
-                "use server";
-
-                await signOut();
-            }}>
-                <button type="submit">
+            
+                <button onClick={onClick} type="submit">
                     Sair
                 </button>
-            </form>
+            
         </div>
     )
 }
