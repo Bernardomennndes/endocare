@@ -2,6 +2,7 @@
 
 import { logout } from "@/actions/logout";
 import { useCurrentUser } from "@/hooks/use-current-user";
+import { Navbar } from "../_components/navbar";
 
 
 const SettingsPage = () =>{
@@ -13,7 +14,6 @@ const SettingsPage = () =>{
     
     return(
         <div>
-              
                 <button onClick={onClick} type="submit">
                     Sair
                 </button>
