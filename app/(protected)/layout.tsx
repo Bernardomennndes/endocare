@@ -1,5 +1,6 @@
-import { HomeIcon, LayoutIcon } from "@radix-ui/react-icons";
+import { ActivityLogIcon, FilePlusIcon, HomeIcon, LayoutIcon, PlusIcon } from "@radix-ui/react-icons";
 import { Navbar, SidebarItem } from "./_components/navbar";
+import { ActivityIcon, ActivitySquare, ClipboardPlus } from "lucide-react";
 
 interface ProtectedLayoutProps{
     children: React.ReactNode;
@@ -7,18 +8,16 @@ interface ProtectedLayoutProps{
 
 const ProtectedLayout = ({ children } : ProtectedLayoutProps) => {
     return(
-        <div>
-            
-            <div className="h-full w-full flex flex-col gap-y-10 items-center justify-center">
+        <div className="flex">
             <Navbar>
                 <SidebarItem 
-                    icon={<HomeIcon/>}
-                    text="Dashboard"
-                    alert
+                    icon={<FilePlusIcon/>}
+                    text="Adicionar Exame"
+                    active
                 />
                 <SidebarItem 
-                    icon={<HomeIcon/>}
-                    text="Dashboard"
+                    icon={<ActivityLogIcon/>}
+                    text="Histórico de exames"
                     alert
                 />
                 <SidebarItem 
@@ -27,6 +26,8 @@ const ProtectedLayout = ({ children } : ProtectedLayoutProps) => {
                     alert
                 />
             </Navbar>
+            <div className="h-full w-full flex flex-col gap-y-10 items-center justify-center">
+            
             {children}
             </div>
         </div>

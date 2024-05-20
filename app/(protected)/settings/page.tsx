@@ -13,7 +13,8 @@ const SettingsPage = () =>{
     }
     
     return(
-        <div>
+        <div className=" bg-slate-500">
+            
                 <button onClick={onClick} type="submit">
                     Sair
                 </button>
