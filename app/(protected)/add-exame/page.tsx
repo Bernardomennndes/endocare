@@ -4,15 +4,13 @@ import { useCurrentUser } from "@/hooks/use-current-user";
 
 
 
-const SettingsPage = () =>{
+const AddPage = () =>{
     const user = useCurrentUser();
 
     return(
         <div className=" bg-slate-500">
-            
-                conteudo textual daqui
-            
+            AddPage
         </div>
     )
 }
-export default SettingsPage;
+export default AddPage;
