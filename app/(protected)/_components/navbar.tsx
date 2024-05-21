@@ -5,6 +5,7 @@ import {
   ChevronLeft,
   ChevronRight,
   LogOut,
+  Settings,
 } from "lucide-react";
 import Image from "next/image";
 import { useContext, createContext, useState } from "react";
@@ -26,9 +27,10 @@ const SidebarContext = createContext();
 export function Navbar({ children }) {
   const [expanded, setExpanded] = useState(true);
   const session = useSession();
-  const onClick = () => {
+  const logOUT = () => {
     logout();
   };
+  
 
   return (
     <aside className="h-screen">
@@ -75,11 +77,19 @@ export function Navbar({ children }) {
                 <MenubarTrigger><MoreVertical size={20} /></MenubarTrigger>
                 <MenubarContent>
                   <MenubarItem>
-                    <button onClick={onClick} type="submit">
+                    <button onClick={logOUT} type="submit">
                       Sair
                     </button>
                     <MenubarShortcut><LogOut size={12} /></MenubarShortcut>
                   </MenubarItem>
+                  <Link href="\settings">
+                  <MenubarItem>
+                    <button  type="submit">
+                      Configuração
+                    </button>
+                    <MenubarShortcut><Settings size={12} /></MenubarShortcut>
+                  </MenubarItem>
+                  </Link>
                 </MenubarContent>
               </MenubarMenu>
             </Menubar>
