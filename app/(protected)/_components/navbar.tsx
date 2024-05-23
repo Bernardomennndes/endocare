@@ -26,26 +26,25 @@ const SidebarContext = createContext();
 
 export function Navbar({ children }) {
   const [expanded, setExpanded] = useState(true);
-  const session = useSession();
+  const { data: session } = useSession();
   const logOUT = () => {
     logout();
   };
-  
 
   return (
     <aside className="h-screen">
       <nav className="h-full flex flex-col rounded-tr-[16px] rounded-br-[16px] bg-gradient-to-tr from-indigo-200 to-indigo-100 border-r shadow-sm">
         <div className="p-4 pb-2 flex justify-between items-center">
           <Link href="/settings">
-          <button>
-            <Image
-              src="/logo.svg"
-              alt="Logotipo da empresa"
-              width={100}
-              height={50}
-              className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"}`}
-            />
-          </button>
+            <button>
+              <Image
+                src="/logo.svg"
+                alt="Logotipo da empresa"
+                width={100}
+                height={50}
+                className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"}`}
+              />
+            </button>
           </Link>
           <button
             onClick={() => setExpanded((curr) => !curr)}
@@ -60,15 +59,15 @@ export function Navbar({ children }) {
         </SidebarContext.Provider>
         <div className="border-t flex p-3">
           <img
-            src={session.data?.user.image || "defaultImagePath"}
-            alt="https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true"
+            src={session?.user?.image || "defaultImagePath"}
+            alt="US"
             className="w-10 h-10 rounded-md"
           />
           <div className={`flex justify-between items-center overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}`}>
             <div className="leading-4">
-              <h4 className="font-semibold">{session.data?.user.name}</h4>
+              <h4 className="font-semibold">{session?.user?.name}</h4>
               <span className="text-xs text-gray-600">
-                {session.data?.user.email}
+                {session?.user?.email}
               </span>
             </div>
 
@@ -82,13 +81,13 @@ export function Navbar({ children }) {
                     </button>
                     <MenubarShortcut><LogOut size={12} /></MenubarShortcut>
                   </MenubarItem>
-                  <Link href="\settings">
-                  <MenubarItem>
-                    <button  type="submit">
-                      Configuração
-                    </button>
-                    <MenubarShortcut><Settings size={12} /></MenubarShortcut>
-                  </MenubarItem>
+                  <Link href="/settings">
+                    <MenubarItem>
+                      <button type="submit">
+                        Configuração
+                      </button>
+                      <MenubarShortcut><Settings size={12} /></MenubarShortcut>
+                    </MenubarItem>
                   </Link>
                 </MenubarContent>
               </MenubarMenu>
@@ -100,7 +99,7 @@ export function Navbar({ children }) {
   );
 }
 
-export function SidebarItem({ icon, text, href, active, alert }) {
+export function SidebarItem({ icon, text, href, active }) {
   const { expanded } = useContext(SidebarContext);
   const router = useRouter();
 
@@ -118,9 +117,9 @@ export function SidebarItem({ icon, text, href, active, alert }) {
       <span className={`overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}`}>
         {text}
       </span>
-      {alert && (
+      {/* {alert && (
         <div className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${expanded ? "" : "top-2"}`} />
-      )}
+      )} */}
       {!expanded && (
         <div
           className={`

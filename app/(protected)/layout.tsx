@@ -25,7 +25,6 @@ const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {
           text="Histórico de exames"
           href="/historico-exames"
           active={pathname === "/historico-exames"}
-          alert
         />
       </Navbar>
       <div className="h-full w-full flex flex-col gap-y-10 items-center justify-center">

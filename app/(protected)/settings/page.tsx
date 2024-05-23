@@ -1,18 +1,44 @@
-"use client"
+"use client";
 
-import { useCurrentUser } from "@/hooks/use-current-user";
+import {
+    Card,
+    CardHeader, 
+    CardContent,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { setting } from "@/actions/settings";
+import { useTransition } from "react";
+import { useSession } from "next-auth/react";
 
+const SettingsPage = () => {
+    const{update} = useSession();
+    const [isPending, startTransition] = useTransition();
 
+    const onClick = () => {
+        startTransition(() => {
+            setting({
+                name: "Gustavo Nobre"
+            })
+            .then(()=> {
+                update();
+            })
+        });
+    };
 
-const SettingsPage = () =>{
-    const user = useCurrentUser();
+    return (
+        <Card className="w-[600px]">
+            <CardHeader>
+                <p className="text-2xl font-semibold text-center">
+                    ⚙️ Configurações
+                </p>
+            </CardHeader>
+            <CardContent>
+                <Button disabled={isPending} onClick={onClick}>
+                    Atualizar
+                </Button>
+            </CardContent>
+        </Card>
+    );
+};
 
-    return(
-        <div className=" bg-slate-500">
-            
-                conteudo textual daqui
-            
-        </div>
-    )
-}
 export default SettingsPage;
