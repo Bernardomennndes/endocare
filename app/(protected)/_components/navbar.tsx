@@ -75,17 +75,13 @@ export function Navbar({ children }) {
               <MenubarMenu>
                 <MenubarTrigger><MoreVertical size={20} /></MenubarTrigger>
                 <MenubarContent>
-                  <MenubarItem>
-                    <button onClick={logOUT} type="submit">
-                      Sair
-                    </button>
+                  <MenubarItem onClick={logOUT} type="submit">
+                       Sair
                     <MenubarShortcut><LogOut size={12} /></MenubarShortcut>
                   </MenubarItem>
                   <Link href="/settings">
                     <MenubarItem>
-                      <button type="submit">
                         Configuração
-                      </button>
                       <MenubarShortcut><Settings size={12} /></MenubarShortcut>
                     </MenubarItem>
                   </Link>
