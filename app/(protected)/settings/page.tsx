@@ -90,8 +90,7 @@ const SettingsPage = () => {
                                     </FormControl>
                                 </FormItem>
                             )} />
-                            {user?.isOAuth === false &&(
-                                <>
+
                                 <FormField 
                                 control={form.control}
                                 name="email"
@@ -140,8 +139,6 @@ const SettingsPage = () => {
                                         </FormControl>
                                     </FormItem>
                                 )} />
-                                </>
-                            )}  
 
                         </div>
                         <FormError message={error}/>

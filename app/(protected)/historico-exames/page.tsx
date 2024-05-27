@@ -9,7 +9,7 @@ const Historic = () =>{
 
     return(
         <div className=" bg-slate-500">
-            AddPage
+            teste
         </div>
     )
 }

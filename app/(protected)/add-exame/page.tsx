@@ -1,5 +1,7 @@
 "use client"
 
+import Colesterol from "@/components/exames/colesterol";
+import NewExame from "@/components/new-exame";
 import { useCurrentUser } from "@/hooks/use-current-user";
 
 
@@ -9,7 +11,7 @@ const AddPage = () =>{
 
     return(
         <div className=" bg-slate-500">
-            AddPage
+            <Colesterol/>
         </div>
     )
 }
