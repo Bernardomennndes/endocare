@@ -1,6 +1,9 @@
 "use client"
 
-import Colesterol from "@/components/exames/colesterol";
+
+
+import HemogramaCom from "@/components/exames/hemograma-completo";
+import IndiceHoma from "@/components/exames/indice-homa";
 import NewExame from "@/components/new-exame";
 import { useCurrentUser } from "@/hooks/use-current-user";
 
@@ -10,8 +13,8 @@ const AddPage = () =>{
     const user = useCurrentUser();
 
     return(
-        <div className=" bg-slate-500">
-            <Colesterol/>
+        <div className=" flex justify-center items-center min-h-screen">
+            <IndiceHoma/>
         </div>
     )
 }
