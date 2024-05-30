@@ -34,7 +34,7 @@ export default function Colesterol(){
             <CardWrapper
             headerTitle="Um novo Exame"
             headerLabel="Colesterol Total e Fracionado"
-            backButtonHref="/add-exame"
+            backButtonHref="/home"
             backButtonLabel="Não tenho nada para registrar"
         >
             <Form {...form}>
