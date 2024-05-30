@@ -55,6 +55,7 @@ export const LoginForm = () => {
             headerLabel="Bem-vindo de volta"
             backButtonHref="/register"
             backButtonLabel="Não tem uma conta?"
+            cardspace="w-[400px] shadow-md"
             showSocial
             >
                 <Form {...form}>

@@ -54,6 +54,7 @@ export const RegisterForm = () => {
       headerLabel="Bem-vindo! Insira seus dados para prosseguir."
       backButtonHref="/login"
       backButtonLabel="Já tem uma conta?"
+      cardspace="w-[400px] shadow-md"
       showSocial
     >
       <Form {...form}>

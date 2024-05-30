@@ -52,6 +52,7 @@ export const ResetForm = () => {
             headerLabel="Esqueceu sua senha?"
             backButtonHref="/login"
             backButtonLabel="Voltar ao Login"
+            cardspace="w-[400px] shadow-md"
             >
                 <Form {...form}>
                     <form

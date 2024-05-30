@@ -40,6 +40,7 @@ export const NewVerificationForm = () =>{
             backButtonLabel="Voltar ao Login"
             backButtonHref="/login"
             headerTitle="Confirme o E-mail"
+            cardspace="w-[400px] shadow-md"
         >
             <div className="flex items-center w-full justify-center">
                 {!success && !error &&(

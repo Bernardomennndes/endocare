@@ -55,6 +55,7 @@ export const NewPasswordForm = () => {
             headerLabel="Qual vai ser sua nova senha?"
             backButtonHref="/login"
             backButtonLabel="Voltar ao Login"
+            cardspace="w-[400px] shadow-md"
             >
                 <Form {...form}>
                     <form
