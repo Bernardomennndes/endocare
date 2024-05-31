@@ -26,16 +26,10 @@ export const CardWrapper = ({
   backButtonHref,
   showSocial,
   headerTitle,
-<<<<<<< HEAD
   cardspace,
 }: CardWrapperProps) => {
   return (
     <Card className={cardspace}>
-=======
-}: CardWrapperProps) => {
-  return (
-    <Card className="w-[400px] shadow-md">
->>>>>>> b40079ed1fd10fc477cd90cef7993afbbb3694e2
       <CardHeader>
         <Header title={headerTitle} label={headerLabel} />
       </CardHeader>
