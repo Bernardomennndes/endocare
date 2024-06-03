@@ -33,9 +33,9 @@ export function Navbar({ children }) {
 
   return (
     <aside className="h-screen">
-      <nav className="h-full flex flex-col rounded-tr-[16px] rounded-br-[16px] bg-gradient-to-tr from-indigo-200 to-indigo-100 border-r shadow-sm">
+      <nav className="h-full flex flex-col rounded-tr-[16px] rounded-br-[16px] bg-gradient-to-tr from-customGreen to-customGreen border-r shadow-sm">
         <div className="p-4 pb-2 flex justify-between items-center">
-          <Link href="/settings">
+          <Link href="/home">
             <button>
               <Image
                 src="/logo.svg"
@@ -65,15 +65,15 @@ export function Navbar({ children }) {
           />
           <div className={`flex justify-between items-center overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}`}>
             <div className="leading-4">
-              <h4 className="font-semibold">{session?.user?.name}</h4>
-              <span className="text-xs text-gray-600">
+              <h4 className="font-semibold text-slate-100">{session?.user?.name}</h4>
+              <span className="text-xs text-slate-100">
                 {session?.user?.email}
               </span>
             </div>
 
             <Menubar>
               <MenubarMenu>
-                <MenubarTrigger><MoreVertical size={20} /></MenubarTrigger>
+                <MenubarTrigger><MoreVertical size={20} color="#E2E2E2" /></MenubarTrigger>
                 <MenubarContent>
                   <MenubarItem onClick={logOUT} type="submit">
                        Sair
@@ -105,7 +105,7 @@ export function SidebarItem({ icon, text, href, active }) {
         relative flex items-center py-2 px-3 my-1
         font-medium rounded-md cursor-pointer
         transition-colors group
-        ${active ? "bg-gradient-to-tr from-slate-200 to-slate-100 text-indigo-800" : "hover:bg-indigo-50 text-gray-600"}
+        ${active ? "bg-gradient-to-tr from-slate-200 to-slate-100 text-customPurple" : "hover:bg-indigo-50 text-slate-100"}
       `}
       onClick={() => router.push(href)}
     >
